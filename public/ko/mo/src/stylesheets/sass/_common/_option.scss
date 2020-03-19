@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* Font style setting */
+$noto:"Noto Sans KR", Arial, Apple SD Gothic Neo, sans-serif;
+
+/* Point color setting */
+$black:#000;
+$white:#fff;
+
+$blue:#008bef;
+$blue2:#0096ff;
+$green:#3ec730;
+$orange:#ff6c00;
+$red:#d40b19;
+$red2:#ff0;
+
+$gray1:#323436;
+$gray2:#626466;
+$gray3:#929496;
+$gray4:#d2d4d6;
+$gray5:#e2e4e6;
+$gray6:#f5f7f9;
+$gray7:#828486;
+
+/* Input - color setting */
+$inp-bd-base:$gray1;
+
+/* Button - color setting */
+$btn-black:$black;
+
+/* BASE SETTING */
+$base-font:"Gotham", "Noto Sans KR", "Apple SD Gothic Neo", AppleGothic, "돋움", Dotum, Arial, sans-serif;
+$base-font-size:16px;
+$base-font-color:$black;
+$letter-spacing:0;
+$light:300;
+$bold:700;
