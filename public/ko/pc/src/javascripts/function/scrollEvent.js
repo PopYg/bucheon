@@ -29,18 +29,11 @@ function scrollEvent(){
             $topBtn.removeClass("fixed");
         }
 
-        //서브 로케이션 위치 고정 
-        if($subLocation === false) {return}
-        if (winSc > 460) {
-            $subLocation.addClass("fixed");
-        } else {
-            $subLocation.removeClass("fixed");
-        }
-
         //서브 페이지 패럴럭스 아이콘
         var _pallPos = Math.ceil(winSc / 30);
         TweenMax.to($pallRight, 1, {y:-_pallPos, ease:es_step});
         TweenMax.to($pallLeft, 1, {y:_pallPos, ease:es_step});
+
     });
 
     $topBtn.click(function () {

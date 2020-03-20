@@ -20,6 +20,13 @@ select {
     @include transition(border-color, .2s);
     &:focus { border-color:$blue !important;}
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s;
+    -webkit-transition: background-color 9999s;
+}
 ::selection { background:$blue; color:$white; text-shadow:none; }
 ::-moz-selection { background:$blue; color:$white; text-shadow:none; }
 img { vertical-align:top; image-rendering:-webkit-optimize-contrast;}

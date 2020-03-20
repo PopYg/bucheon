@@ -1,7 +1,7 @@
 "use strict";
 var winW;
 var winH;
-var es_step = "Expo.ease";
+var esStep = "Expo.ease";
 var $window = $(window);
 var winSc;
 var htmlH;

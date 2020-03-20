@@ -1,7 +1,7 @@
 "use strict";
 var winW;
 var winH;
-var es_step = "Expo.ease";
+var esStep = "Expo.ease";
 var $window = $(window);
 var winSc;
 var htmlH;
@@ -61,10 +61,20 @@ $window.load(function () {
     scrollEvent();
 });
 function layout() {
-    var $header = $("#header");
-    var $gnb = $header.find("#gnb");
-    var $gnbDimmed = $("#gnbDimmed");
-    var $allNavBtn = $("#allNavBtn");
+    var $gnb = $("#gnb");
+    var $gnbTxtOpen = $("#gnbTxtOpen");
+
+    var $gnbDepth01 = $gnb.find(".gnb_depth01");
+    var $heavyTxt = $gnb.find(".heavy_txt");
+
+    $gnbTxtOpen.click(function(){
+        TweenMax.to($gnbDepth01, .3, {width:250, ease:esStep});
+        TweenMax.to($heavyTxt, .3, {x:0});
+    });
+
+
+
+
 }
 
 
@@ -136,18 +146,11 @@ function scrollEvent(){
             $topBtn.removeClass("fixed");
         }
 
-        //서브 로케이션 위치 고정 
-        if($subLocation === false) {return}
-        if (winSc > 460) {
-            $subLocation.addClass("fixed");
-        } else {
-            $subLocation.removeClass("fixed");
-        }
-
         //서브 페이지 패럴럭스 아이콘
         var _pallPos = Math.ceil(winSc / 30);
         TweenMax.to($pallRight, 1, {y:-_pallPos, ease:es_step});
         TweenMax.to($pallLeft, 1, {y:_pallPos, ease:es_step});
+
     });
 
     $topBtn.click(function () {
