@@ -175,6 +175,9 @@
 	}
 }
 
+@mixin arrowIcon($width, $thickness){
+	width:$width; height:$width; border-left-width:$thickness; border-left-style:solid; border-left-color:$gray2; border-bottom-style:solid; border-bottom-width:$thickness; border-bottom-color:$gray2;
+}
 
 //자주 나오는 주가정보 시세 게시판 - row 기준 게시판
 @mixin stockRowTable {

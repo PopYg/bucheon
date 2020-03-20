@@ -32,17 +32,63 @@
     <!-- header-->
     <header id="header">
         <div class="header_wrap">
-            <h1 id="logo"><a href="../main/main.html" title="포털 홈으로 이동">판타지아 부천 로고</a></h1>
+            <h1 id="logo"><a href="../main/main.html" title="포털 홈으로 이동"><img src="../../images/layout/logo.jpg" alt="판타지아 부천 로고"></a></h1>
+            <!--지역 셀렉터-->
+            <div id="areaSelect">
+                <button type="button" class="prev_btn">이전 지역 버튼</button>
+                <p>부천시 부개2동</p>
+                <button type="button" class="next_btn">다음 지역 버튼</button>
+            </div>
+            <!--//지역 셀렉터-->
+
+            <!--날씨&미세먼지 정보-->
+            <div class="info_txt">
+                <p class="weather_txt">맑음 15˚</p>
+                <div class="dust_wrap">
+                    <!--미세먼지 아이콘 색 변경 - svg class 명으로 변경 -->
+                    <!--맑음이면 good / 보통이면 normal / 나쁨이면 bad / 매우나쁨이면 very_bad -->
+                    <svg class="good" version="1.1" width="22px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 16" xml:space="preserve">
+                        <g>
+                            <path d="M8,2c0,1.104-0.896,2-2,2S4,3.104,4,2s0.896-2,2-2S8,0.896,8,2"/>
+                            <path d="M15,2c0,1.104-0.896,2-2,2s-2-0.896-2-2s0.896-2,2-2S15,0.896,15,2"/>
+                            <path d="M22,2c0,1.104-0.896,2-2,2c-1.104,0-2-0.896-2-2s0.896-2,2-2 C21.104,0,22,0.896,22,2"/>
+                            <path d="M4,8c0,1.104-0.896,2-2,2S0,9.104,0,8s0.896-2,2-2S4,6.896,4,8"/>
+                            <path d="M11,8c0,1.104-0.896,2-2,2S7,9.104,7,8s0.896-2,2-2S11,6.896,11,8"/>
+                            <path d="M18,8c0,1.104-0.896,2-2,2s-2-0.896-2-2s0.896-2,2-2S18,6.896,18,8"/>
+                            <path d="M8,14c0,1.104-0.896,2-2,2s-2-0.896-2-2c0-1.104,0.896-2,2-2S8,12.896,8,14"/>
+                            <path d="M15,14c0,1.104-0.896,2-2,2s-2-0.896-2-2c0-1.104,0.896-2,2-2S15,12.896,15,14"/>
+                            <path d="M22,14c0,1.104-0.896,2-2,2c-1.104,0-2-0.896-2-2c0-1.104,0.896-2,2-2 C21.104,12,22,12.896,22,14"/>
+                        </g>
+                    </svg>
+                    좋음 7 <span>㎍/㎥</span> <em>(PM -2.5)</em>
+                </div>
+            </div>
+            <dl class="measurement_date">
+                <dt>측정일시</dt>
+                <dd><time datetime="2020-02-25 10:00">20.02.25<span>10:00</span></time></dd>
+            </dl>
+            <!--날씨&미세먼지 정보-->
+
             <!--상단 유틸 메뉴-->
             <div class="header_util">
-
+                <div id="headerSearch">
+                    <form action="">
+                        <fieldset>
+                            <legend>검색 입력</legend>
+                            <label for="headerSearchString" class="hidden-txt">검색어를 입력하세요.</label>
+                            <input type="text" id="headerSearchString" placeholder="검색어를 입력하세요.">
+                            <input type="submit" title="검색 버튼" value="search">
+                        </fieldset>
+                    </form>
+                </div>
+                <a href="" class="login_link">로그인 페이지로 이동</a>
             </div>
             <!--//상단 유틸 메뉴-->
         </div>
         <!--gnb-->
         <div id="gnb">
             <nav>
-                <h2 class="hidden-txt">global navigation</h2>
+                <h2 class="hidden-txt">전체 메뉴</h2>
 
             </nav>
         </div>

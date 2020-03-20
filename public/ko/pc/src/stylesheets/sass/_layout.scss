@@ -11,6 +11,100 @@ html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
 
 /* 헤더 */
 #header {
-
+    width:100%; position:fixed; top:0; left:0;
+    .header_wrap {
+        height:90px; padding:0 0 0 80px; border-bottom:1px solid $gray5; background-color:$white;
+        @include boxSizing;
+        @extend %clearfix;
+        #logo {float:left; padding:18px 0 0 35px;}
+        #areaSelect {
+            float:left; padding:29px 0 0 52px;
+            @extend %clearfix;
+            button {
+                width:32px; height:32px; position:relative; text-indent:-9999px; float:left;
+                @include boxSizing;
+                @include borderRadius(100%);
+                @include borderSet(1px, solid, $gray4);
+                @include transition;
+                &:after {
+                    display:block; content:""; position:absolute; left:50%; top:50%; float:left;
+                    @include arrowIcon(6px, 2px);
+                    @include transition(border-color, .2s);
+                }
+                &.prev_btn {
+                    &:after {@include transform(translate(-40%, -50%) rotate(45deg));}
+                }
+                &.next_btn {
+                    &:after {@include transform(translate(-60%, -50%) rotate(-135deg));}
+                }
+                &:hover,
+                &:focus {
+                    border-color:#3669d6; background-color:$blue;
+                    &:after {border-color:$white;}
+                }
+            }
+            p {width:174px; height:32px; float:left; text-align:center; line-height:32px; font-size:20px; font-weight:$medium;}
+        }
+        .info_txt {
+            float:left; padding:33px 0 0 43px; line-height:24px; font-weight:$medium;
+            @extend %clearfix;
+            img {width:21px; float:left;}
+            .weather_txt {
+                float:left; font-weight:$medium; padding:0 10px 0 36px; background-image:url(../../images/layout/weather_icon01.gif);
+                @include backgroundSolt(0, 50%);
+            }
+            .dust_wrap {
+                float:left; padding:0 0 0 50px; position:relative;
+                &:after {width:1px; height:14px; display:block; content:""; position:absolute; left:0; top:5px; background-color:$gray4;}
+                svg {
+                    position:absolute; top:4px; left:14px;
+                    path {fill:#456cd1}
+                    &.good path {fill:#456cd1}
+                    &.normal path {fill:$green}
+                    &.bad path {fill:$orange}
+                    &.very_bad path {fill:$red}
+                }
+                span {letter-spacing:-2.5px;}
+                em {font-size:16px; font-weight:$regular; color:$gray3; padding:0 0 0 5px;}
+            }
+        }
+        .measurement_date {
+            float:left; padding:33px 0 0 35px; line-height:24px; color:$gray3; font-size:14px;
+            @extend %clearfix;
+            dt {float:left; font-weight:$medium;}
+            dd {float:left; padding:0 0 0 10px;}
+            span {padding:0 0 0 7px;}
+        }
+        .header_util {
+            float:right; margin:24px 25px 0 0;
+            @extend %clearfix;
+            #headerSearch {
+                width:250px; height:42px; position:relative; float:left;
+                input[type=text] {
+                    width:100%; height:42px; padding:0 50px 0 20px; font-size:14px;
+                    @include boxSizing;
+                    @include borderSet(1px, solid, $gray4);
+                    @include borderRadius(42px);
+                    &-internal-autofill-selected {background-color:#fff;}
+                }
+                input[type=submit] {
+                    width:24px; height:24px; position:absolute; right:15px; top:9px; text-indent:-9999px; background-image:url(../../images/layout/search_icon.gif); cursor:pointer;
+                    @include backgroundSolt;
+                    @include transition(background-image, .3s);
+                    &:hover,
+                    &:focus {background-image:url(../../images/layout/search_icon_over.gif);}
+                }
+            }
+            .login_link {
+                width:38px; height:38px; display:block; float:left; margin:2px 0 0 18px; text-indent:-9999px; background:url(../../images/layout/login_icon.png) 50% 50% no-repeat #525456;
+                @include borderSet(1px, solid, #525456);
+                @include boxSizing;
+                @include transition;
+                @include borderRadius(100%);
+                &:hover,
+                &:focus {border-color:#3669d6; background-color:$blue;}
+            }
+        }
+    }
 }
 
