@@ -50,7 +50,7 @@ html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
             @extend %clearfix;
             img {width:21px; float:left;}
             .weather_txt {
-                float:left; font-weight:$medium; padding:0 10px 0 36px; background-image:url(../../images/layout/weather_icon01.gif);
+                float:left; padding:0 10px 0 36px; background-image:url(../../images/layout/weather_icon01.gif);
                 @include backgroundSolt(0, 50%);
             }
             .dust_wrap {
@@ -112,10 +112,7 @@ html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
         .gnb_menu_btn {width:79px; height:90px; position:relative; border-right:1px solid $gray5; background-color:$white;}
         #gnbTxtOpen {
             width:25px; height:19px; position:absolute; top:36px; left:28px; text-indent:-9999px;
-            &:hover,
-            &:focus {
-                span {width:25px;}
-            }
+            &:hover span {width:25px;}
             &:before,
             &:after,
             span {
@@ -125,82 +122,171 @@ html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
             &:before {top:0;}
             &:after {top:16px;}
             span {width:19px; top:8px;}
-            &.nav_open {
-                button {
-                    &:before {
-                        background-color:$gray1; top:10px;
-                        @include rotate(45);
+        }
+        
+        //gnb 오픈
+        &.nav_open {
+            #gnbTxtOpen {
+                &:before,
+                &:after {background-color:$blue;}
+                span {width:25px; background-color:$blue;}
+            }
+            nav {
+                .gnb_depth01 {
+                    > li {
+                        > button,
+                        > a {
+                            height:70px; z-index:10;
+                            div {@include translateY(5px);}
+                            i {@include translateY(17px);}
+                            .heavy_txt {
+                                @include translateX(-12px);
+                            }
+                            .light_txt {
+                                @include opacity(0);
+                            }
+                            &.active div {
+                                @include translateY(0);
+                            }
+                        }
                     }
-                    &:after {
-                        background-color:$gray1; top:10px;
-                        @include rotate(-45);
-                    }
-                    span {width:0 !important; background-color:$gray1;}
                 }
             }
         }
         nav {
-            height:100%; background-color:$white; position:relative;
-            &:after {width:1px; height:100%; display:block; content:""; background-color:$gray5; position:absolute; right:0;}
-            .gnb_depth01 {
-                width:80px; overflow:hidden;
-                > li {
-                    width:max-content;
-                    &:nth-of-type(1) > button,
-                    &:nth-of-type(1) > a {
-                        i {background-image:url(../../images/layout/depth_icon01.png);}
+            height:calc(100% - 90px); background-color:$white; position:relative;
+            &:after {width:1px; height:100%; display:block; content:""; background-color:$gray5; position:absolute; right:0; top:0; z-index:1;}
+        }
+        
+        //1뎁스
+        .gnb_depth01 {
+            width:80px; overflow:hidden;
+            > li {
+                width:max-content;
+                &:nth-of-type(1) > button,
+                &:nth-of-type(1) > a {
+                    i {background-image:url(../../images/layout/depth_icon01.png);}
+                }
+                &:nth-of-type(2) > button, &:nth-of-type(2) > a {
+                    i {background-image:url(../../images/layout/depth_icon02.png);}
+                }
+                &:nth-of-type(3) > button, &:nth-of-type(3) > a {
+                    i {background-image:url(../../images/layout/depth_icon03.png);}
+                }
+                &:nth-of-type(4) > button, &:nth-of-type(4) > a {
+                    i {background-image:url(../../images/layout/depth_icon04.png);}
+                }
+                &:nth-of-type(5) > button, &:nth-of-type(5) > a {
+                    i {background-image:url(../../images/layout/depth_icon05.png);}
+                }
+                &:nth-of-type(6) > button, &:nth-of-type(6) > a {
+                    i {background-image:url(../../images/layout/depth_icon06.png);}
+                }
+                > button,
+                > a {
+                    width:100%; height:80px; display:block; position:relative;
+                    @include transition;
+                    div {
+                        width:max-content;
+                        @include transition(transform, .2s);
+                        @extend %clearfix;
                     }
-                    &:nth-of-type(2) > button, &:nth-of-type(2) > a {
-                        i {background-image:url(../../images/layout/depth_icon02.png);}
+                    i {
+                        width:80px; height:36px; float:left; display:block;
+                        @include backgroundSolt(50%, 0);
+                        @include translateY(12px);
+                        @include transition(transform, .2s);
                     }
-                    &:nth-of-type(3) > button, &:nth-of-type(3) > a {
-                        i {background-image:url(../../images/layout/depth_icon03.png);}
+                    .heavy_txt {
+                        width:170px; float:left; color:$gray2; font-size:15px; line-height:70px;
+                        @include translateX(20px);
+                        @include transition;
                     }
-                    &:nth-of-type(4) > button, &:nth-of-type(4) > a {
-                        i {background-image:url(../../images/layout/depth_icon04.png);}
+                    .light_txt {
+                        width:80px; text-align:center; font-size:12px; color:$gray3; font-weight:$medium; position:relative; top:-20px;
+                        @include transition;
                     }
-                    &:nth-of-type(5) > button, &:nth-of-type(5) > a {
-                        i {background-image:url(../../images/layout/depth_icon05.png);}
+                
+                    //over
+                    &:hover,
+                    &:focus {
+                        i {@include backgroundSolt(50%, -36px)}
+                        p {color:$blue;}
                     }
-                    &:nth-of-type(6) > button, &:nth-of-type(6) > a {
-                        i {background-image:url(../../images/layout/depth_icon06.png);}
+                    //현재 페이지
+                    &.active {
+                        background-color:$blue; z-index:10;
+                        @include boxShadow(0 0 15px -2px #323436);
+                        i {@include backgroundSolt(50%, -72px)}
+                        .light_txt,
+                        .heavy_txt {color:$white;}
                     }
-                    > button,
-                    > a {
-                        width:100%; height:80px; display:block;
-                        div {
-                            width:max-content;
-                            @extend %clearfix;
+                }
+            }
+        }
+        
+        //2뎁스
+        .gnb_depth02 {
+            width:270px; height:100%; position:absolute; top:0; left:100%; background-color:$white; z-index:-1; padding:10px 0 0; font-size:15px; border-right:1px solid $gray5; letter-spacing:-.2px;
+            @include boxSizing;
+            > li {
+                > a,
+                > button {
+                    width:100%; height:54px; line-height:54px; display:block; position:relative; padding:0 25px 0 20px; color:$gray2;
+                    @include boxSizing;
+                    @include transition(color, .2s);
+                    i {
+                        width:6px; height:10px; display:block; position:absolute; right:25px; top:22px;
+                        @include transition;
+                        &:before,
+                        &:after {
+                            width:8px; height:2px; display:block; content:""; background-color:$gray4; position:absolute; left:0;
+                            @include transition(background-color, .2s);
                         }
+                        &:before {top:2px; @include rotate(45)}
+                        &:after {bottom:2px; @include rotate(-45)}
+                    }
+                    
+                    //over
+                    &:hover,
+                    &:focus {color:$blue;}
+                    
+                    //현재 페이지
+                    &.active {
+                        color:$blue;
                         i {
-                            width:79px; height:36px; float:left; display:block; margin:12px 0 0;
-                            @include backgroundSolt(50%, 0);
+                            &:before,
+                            &:after {background-color:$blue;}
                         }
-                        .heavy_txt {
-                            float:left; color:$gray2; font-size:15px; line-height:70px;
-                            @include translate(20px, 0);
-                            @include transition;
-                        }
-                        .light_txt {
-                            width:79px; text-align:center; font-size:12px; color:$gray3; font-weight:$medium; position:relative; top:-20px;
-                            @include transition;
-                        }
-                        
-                        //over
-                        &:hover,
-                        &:focus {
-                            i {@include backgroundSolt(50%, -36px)}
-                            .light_txt {color:$blue;}
-                        }
-                        //현재 페이지
-                        &.active {
-                            background-color:$blue;
-                            @include boxShadow(0 0 20px -2px #323436);
-                            i {@include backgroundSolt(50%, -72px)}
-                            .light_txt,
-                            .heavy_txt {color:$white;}
-                        }
+                        & ~ .gnb_depth03 {display:block;}
                     }
+                }
+                > button.active {
+                    i {
+                        top:20px;
+                        @include rotate(90);
+                    }
+                }
+            }
+        }
+        
+        //3뎁스
+        .gnb_depth03 {
+            border-top:1px solid $gray5; border-bottom:1px solid $gray5; padding:15px 25px 15px 22px; background-color:$gray6; line-height:24px; letter-spacing:-.5px; overflow:hidden; display:none;
+            li {padding:10px 0 10px 13px;}
+            a {
+                color:$gray2; position:relative;
+                @include transition(color, .3s);
+                &:before {
+                    width:3px; height:3px; display:block; content:""; background-color:$gray2; position:absolute; left:-13px; top:6px;
+                    @include transition(background-color, .2s);
+                }
+                
+                //over
+                &:hover,
+                &:focus {
+                    color:$blue;
+                    &:before {background-color:$blue;}
                 }
             }
         }

@@ -13,6 +13,12 @@
 @mixin translate ($x, $y) {
 	@include transform(translate($x, $y));
 }
+@mixin translateX ($x) {
+	@include transform(translateX($x));
+}
+@mixin translateY ($y) {
+	@include transform(translateY($y));
+}
 @mixin skew ($x, $y) {
 	@include transform(skew(#{$x}deg, #{$y}deg));
 }
